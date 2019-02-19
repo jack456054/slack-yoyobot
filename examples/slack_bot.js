@@ -80,8 +80,8 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
-bot.setupWebserver(process.env.PORT || 3000, function(err, webserver) {
-  bot.createWebhookEndpoints(webserver, bot, function(){
+controller.setupWebserver(process.env.PORT || 3000, function(err, webserver) {
+  controller.createWebhookEndpoints(webserver, bot, function(){
     console.log(`yoyobot is listening on port ${process.env.PORT}`);
   })
 });
