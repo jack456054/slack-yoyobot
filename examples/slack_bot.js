@@ -80,6 +80,12 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+bot.setupWebserver(process.env.PORT || 3000, function(err, webserver) => {
+  bot.createWebhookEndpoints(webserver, bot, function(){
+    console.log(`yoyobot is listening on port ${process.env.PORT}`);
+  })
+});
+
 controller.hears(['(.*)'], 'direct_message,direct_mention,mention', function(bot, message) {
     var content = message.match[1];
     controller.storage.users.get(message, function(err, user) {
