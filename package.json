@@ -57,7 +57,8 @@
     "lint": "eslint .",
     "test": "jest",
     "test:facebook": "jest test/facebook --coverage",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "start": "node examples/slack_bot.js"
   },
   "bin": {
     "botkit": "./bin/cli.js"
